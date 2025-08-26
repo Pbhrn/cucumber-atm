@@ -1,11 +1,10 @@
 Feature: Deposit
 
   Background:
-    Given a bank with accounts:
-      | id     | name   | balance |
-      | 10001  | Alice  | 500     |
+    Given a customer with id 1 and pin 111 with balance 200 exists
+
 
   Scenario: deposit 200 to existing account
-    Given I login with id 10001
+    Given I login to ATM with id 1 and pin 111
     When I deposit 200
-    Then my balance should be 700
+    Then my account balance is 400
